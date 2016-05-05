@@ -1,0 +1,202 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class ManageList {
+
+/** * Offer a menu of options:
+* 1 add an item to your cart
+* 2 remove an item from your cart
+* 3 view the items in your cart
+* 4 end shopping and go to checkout
+* 5 empty your cart
+* 6 exit the program
+* Use the Scanner class to collect input
+*/
+public static void main(String[] args) {
+// TODO Auto-generated method stub
+Scanner scan = new Scanner(System.in);
+ArrayList<Integer> intList = new ArrayList<Integer>();
+boolean keepGoing = true;
+int choice = 0;
+int input = 0;
+int index=0;
+int total = 0;
+Integer item;
+
+while(keepGoing)
+{
+System.out.println("\nMenu - Shopping Cart Options");
+System.out.println("1 add an item to the cart");
+System.out.println("2 remove an item from the cart");
+System.out.println("3 view the items in the cart");
+System.out.println("4 Exit and check-out");
+System.out.println("5 Empty the cart");
+System.out.println("6 Exit");
+System.out.println("Select a menu option");
+choice = scan.nextInt();
+if (choice <1 || choice >6)
+{
+System.out.println("Enter a value between 1 and 6:");
+}
+else
+{
+switch (choice)
+{
+case 1:
+//add an integer
+System.out.println("Enter an item you want:");
+input = scan.nextInt();
+item = new Integer(input);
+intList.add(item);
+//intList.add(input);
+break;
+case 2:
+//remove from the list
+System.out.println("Enter and item to remove:");
+input = scan.nextInt();
+item = new Integer(input);
+if (intList.contains(item))
+{
+intList.remove(item);
+System.out.println(item + " has been removed.");
+}
+else
+{
+System.out.println(item + " was not found in your shopping cart.");
+}
+break;
+case 3:
+//view the items in your cart
+System.out.println(intList);
+break;
+case 4:
+//Exit and add up the total
+for (int i = 0; i<intList.size(); i++)
+{
+item = intList.get(i);
+total = total + item.intValue();
+}
+System.out.println("Total is "+ total);
+System.out.println("Goodbye");
+keepGoing = false;
+break;
+case 5:
+//Empty the list
+intList.clear();
+break;
+case 6:
+//exit
+keepGoing = false;
+System.out.println("Goodbye");
+break;
+
+}
+}	
+}
+}
+}
+__________________________________________________ _____________________________________
+public class QueueProgram
+{
+	static int[] arrival={};
+	static int[] service={};
+
+	int waitTime;
+	int finishTime;
+	int serviceTime;
+	static int index;
+
+	Queue<integer> Customer= new Linked List<Integer>();
+
+	public int maxWait(int[] arrival, int[] service)
+	{
+		//this.arrival= arrival;
+		//this.service=service;
+		int maxwaitTime= 0;
+		int[]finishTime=new int[arrival.length];
+		
+		for(int i=0;i<arrival.length;i++)
+		{
+		  int starTime;
+		  index=i;
+		  if(index==0)
+		{
+		 startTime= arrival[index];
+		 //system.out.println(startTime);
+		}
+		else
+		{
+		 startTime= Math.max(arrival[i],finishTime[i-1]);
+		}
+		 finishTime[i]= startTime+service[i];
+		 waitTime=finishTime[i]-service[i]-arrival[i];
+
+		 if(waitTime > maxWaitTime)
+		{
+		 maxWaitTime= waitTime;
+		}
+	}
+	 return maxWaitTime;
+    }
+     public static void main(string[] args)
+    {
+	QueueProgram q= new QueueProgram();
+	q.maxWait(arrival, service);
+	System.out.println("Maximum wait Time is " + q.maxWait(arrival, service));
+    }
+}
+
+public class CartItem {
+private String product;
+private int quantity;
+private double price;
+
+//constructor
+public CartItem()
+{
+product = ""; //say that in a string
+quantity = 0;//say that in an int
+price = 0.0;//say that in a double
+}
+public String getProduct()
+{
+return product;
+}
+public double getPrice()
+{
+return price;
+}
+public int getQuantity()
+{
+return quantity;
+}
+//constructor with parameters
+public CartItem(String inProduct, int inQuant, double inPrice)
+{
+product = new String(inProduct);
+quantity = inQuant;
+price = inPrice;
+}
+//getter setter public methods for each instance data
+public boolean equals(CartItem item)
+{
+//write the code for the equals method
+//return true;
+
+boolean result = false;
+if (this.product.equalsIgnoreCase(item.getProduct()) && this.price == item.getPrice())
+result = true;
+else
+result = false;
+
+return result;
+}
+
+public String toString()
+{
+//write code for toString method
+String result="";
+
+return result;
+}
+}
